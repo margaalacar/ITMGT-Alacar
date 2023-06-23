@@ -33,7 +33,9 @@ def savings(gross_pay, tax_rate, expenses):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    after_tax_pay = int(gross_pay*(1-tax_rate))
+    remaining_pay = after_tax_pay - expenses
+    return remaining_pay
 
 def material_waste(total_material, material_units, num_jobs, job_consumption):
     '''Material Waste.
@@ -68,7 +70,10 @@ def material_waste(total_material, material_units, num_jobs, job_consumption):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    total_material_consumed = num_jobs * job_consumption
+    total_waste = total_material_consumed - total_material
+    result = f"{total_waste}{material_units}"
+    return result
 
 def interest(principal, rate, periods):
     '''Interest.
@@ -98,7 +103,9 @@ def interest(principal, rate, periods):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    simple_interest = principal * (rate * periods)
+    final_value = principal + simple_interest
+    return int(final_value)
 
 def body_mass_index(weight, height):
     '''Body Mass Index.
@@ -134,4 +141,9 @@ def body_mass_index(weight, height):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    def body_mass_index(weight, height):
+    list = height
+    weight_kg = weight * 0.45359237
+    height_m = ((list[0] * 12) + list[1]) * 0.0254
+    bmi = weight_kg / (height_m ** 2)
+    return bmi
