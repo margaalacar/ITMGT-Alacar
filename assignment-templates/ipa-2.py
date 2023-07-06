@@ -37,7 +37,15 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    if letter == " ":
+        return " "
+    letter = letter.upper()
+    alphabet = string.ascii_uppercase
+    shifted_index = (alphabet.index(letter) + shift)%len(alphabet)
+    shifted_letter = alphabet[shifted_index]
+
+    return shifted_letter
+    
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher.
@@ -59,7 +67,19 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    shifted_message = "" #creates an empty string to put the message in
+    alphabet = string.ascii_uppercase
+    for char in message:
+        if char == " ":
+            shifted_message += " "
+        else:
+            char = char.upper()
+            shifted_index = (alphabet.index(char) + shift) % len(alphabet)
+            shifted_char = alphabet[shifted_index]
+            shifted_message += shifted_char
+
+    return shifted_message
+
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter.
@@ -89,7 +109,15 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    if letter == " ":
+        return " "
+    letter = letter.upper()
+    alphabet = string.ascii_uppercase
+    shifted_index = (alphabet.index(letter) + (alphabet.index(letter_shift)))%len(alphabet)
+    shifted_letter = alphabet[shifted_index]
+
+    return shifted_letter
+
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher.
@@ -122,7 +150,25 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    while len(message) > len(key):
+        key += key
+    key = key[:len(message)]
+    
+    shifted_message = ""
+    alphabet = string.ascii_uppercase
+   
+    for i, char in enumerate(message):
+        if char == " ":
+            shifted_message += " "
+        else:
+            char = char.upper()
+            shift = alphabet.index(key[i])
+            shifted_index = (alphabet.index(char) + shift) % len(alphabet)
+            shifted_char = alphabet[shifted_index]
+            shifted_message += shifted_char
+  
+    return shifted_message
+
 
 def scytale_cipher(message, shift):
     '''Scytale Cipher.
