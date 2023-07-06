@@ -141,7 +141,6 @@ def body_mass_index(weight, height):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    def body_mass_index(weight, height):
     list = height
     weight_kg = weight * 0.45359237
     height_m = ((list[0] * 12) + list[1]) * 0.0254
