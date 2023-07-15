@@ -41,7 +41,14 @@ def relationship_status(from_member, to_member, social_graph):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    if to_member in social_graph[from_member]['following']:
+        if from_member in social_graph[to_member]['following']:
+            return "friends"
+        else:
+            return "follower"
+    elif from_member in social_graph[to_member]['following']:
+        return "followed by"
+    return "no relationship"
 
 
 def tic_tac_toe(board):
@@ -70,7 +77,21 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    for to
+    for row in board:
+        if all(elements == row[0] for elements in row):
+            return row[0]
+    
+    for column in range(len(board[0])): #use the length of the first row of the board to find number of total columns
+        if all(board[row][column] == board[0][column] for row in range(len(board))):
+            return board[0][column]
+        
+        if all(board[i][i] == board[0][0] for i in range(len(board))):
+            return board[0][0]
+        elif all(board[i][len(board) - i - 1] == board[0][len(board) - 1] for i in range(len(board))):
+            return board[0][len(board)-1]
+    
+    return "NO WINNER"
 
 def eta(first_stop, second_stop, route_map):
     '''ETA.
