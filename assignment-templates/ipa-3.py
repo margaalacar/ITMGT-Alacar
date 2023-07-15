@@ -77,7 +77,6 @@ def tic_tac_toe(board):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    for to
     for row in board:
         if all(elements == row[0] for elements in row):
             return row[0]
@@ -124,4 +123,14 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    total_time = 0
+    current_stop = first_stop
+    
+    while current_stop != second_stop:
+        for route in route_map:
+            if current_stop == route[0]:
+                total_time += route_map[route]["travel_time_mins"]
+                current_stop = route[1]
+                break
+                
+    return total_time
