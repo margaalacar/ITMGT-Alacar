@@ -1,0 +1,35 @@
+!pip install matplotlib requests
+
+import requests
+import matplotlib.pyplot as plt
+import json 
+import time
+
+# List to store latitude, longitude, and timestamp data points
+data_points = []
+
+# Number of data points to generate
+num_data_points = 100
+
+for num in range(num_data_points):
+    req = requests.get('http://api.open-notify.org/iss-now.json')
+    data = req.json()
+
+    latitude = data['iss_position']['latitude']
+    longitude = data['iss_position']['longitude']
+    timestamp = data['timestamp']
+    
+    data_points.append((latitude, longitude, timestamp))
+
+    time.sleep(10)
+
+# Extract latitude and longitude values for plotting
+latitudes = [point[0] for point in data_points]
+longitudes = [point[1] for point in data_points]
+
+# Plot the path of the ISS using matplotlib
+plt.title('ISS Path')
+plt.plot(longitudes, latitudes)
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
