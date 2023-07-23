@@ -78,16 +78,16 @@ def tic_tac_toe(board):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     for row in board:
-        if all(elements == row[0] for elements in row):
+        if all(elements == row[0] for elements in row) and row[0] != '':
             return row[0]
     
-    for column in range(len(board[0])): #use the length of the first row of the board to find number of total columns
-        if all(board[row][column] == board[0][column] for row in range(len(board))):
+    for column in range(len(board[0])): 
+        if all(board[row][column] == board[0][column] for row in range(len(board))) and board[0][column] != '':
             return board[0][column]
         
-        if all(board[i][i] == board[0][0] for i in range(len(board))):
+        if all(board[i][i] == board[0][0] for i in range(len(board))) and board[0][0] != '':
             return board[0][0]
-        elif all(board[i][len(board) - i - 1] == board[0][len(board) - 1] for i in range(len(board))):
+        elif all(board[i][len(board) - i - 1] == board[0][len(board) - 1] for i in range(len(board))) and board[0][len(board) - 1] != '':
             return board[0][len(board)-1]
     
     return "NO WINNER"
